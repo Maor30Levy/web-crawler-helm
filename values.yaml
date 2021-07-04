@@ -1,0 +1,69 @@
+app:
+  image:
+    repository: maor30levy
+    appName: "web-crawler"
+    pullPolicy: IfNotPresent
+    imagePullSecrets: []
+    nameOverride: ""
+    fullnameOverride: ""
+
+client:
+  replicaCount: 1
+
+  serviceName: "client"
+
+  image:
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 3000
+
+server:
+  replicaCount: 2
+
+  serviceName: "server"
+
+  image:
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 4000
+
+worker:
+  replicaCount: 2
+
+  serviceName: "worker"
+
+  image:
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 5000
+
+parser:
+  replicaCount: 3
+
+  serviceName: "parser"
+
+  image:
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 5050
+
+redis:
+  replicaCount: 1
+
+  serviceName: "redis"
+
+  image:
+    appName: "custome-redis"
+    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 6379

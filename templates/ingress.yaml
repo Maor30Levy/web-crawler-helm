@@ -6,10 +6,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: "localhost"
+  - host: "{{ .Chart.name }}"
     http:
       paths:
       - path: /
         backend:
             serviceName: client-service
-            servicePort: 3000
+            servicePort: {{ .Values.client.service.port }}

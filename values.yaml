@@ -16,7 +16,7 @@ client:
     tag: "latest"
 
   service:
-    type: LoadBalancer
+    type: ClusterIP
     port: 3000
 
 server:
